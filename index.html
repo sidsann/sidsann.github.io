@@ -39,6 +39,23 @@
             height: calc(100% - 56px); /* Make Resume section stretch to bottom of the screen */
             overflow-y: auto; /* Add scroll if content is bigger */
         }
+        .blog-post {
+            background-color: #f8f8f8; /* This will be the background color of the blog post */
+            padding: 20px; /* This will create some space inside the blog post */
+            margin-bottom: 20px; /* This will create some space between blog posts */
+            border-radius: 5px; /* This will create rounded corners for the blog post */
+        }
+        .project {
+            background-color: #f8f8f8; /* This will be the background color of the project */
+            padding: 20px; /* This will create some space inside the project */
+            margin-bottom: 20px; /* This will create some space between projects */
+            border-radius: 5px; /* This will create rounded corners for the project */
+        }
+        .tech-logo {
+            width: auto;
+            height: 50px;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -86,7 +103,7 @@
             <div class="col-lg-8 mx-auto">
                 <h1>About Me</h1>
                 <p>
-                    Hi, my name is Sid and I am currently pursuing a Master's degree in Computer Science at the University of Pennsylvania.
+                    Hi, my name is Sid, and I am currently pursuing a Master's degree in Computer Science at the University of Pennsylvania.
                 </p>
                 <p>
                     My broad educational exposure as an undergraduate biochemistry major has allowed me to appreciate the interconnectedness of different fields, as well as the transformative power of technology. I see Computer Science as the key to keeping pace with our rapidly evolving world, and I am eager to play my part in shaping the future.
@@ -107,11 +124,15 @@
             <div class="col-lg-8 mx-auto">
                 <h1>Projects</h1>
                 <div class="project">
-                    <h2>Project Title</h2>
-                    <p class="lead">Project Summary</p>
+                    <h2>Personal Website</h2>
+                    <p class="lead">Hint: its this one!</p>
                     <p>Technologies Used:</p>
-                    <a href="#"><img src="logo1.png" alt="logo1" /></a>
-                    <a href="#"><img src="logo2.png" alt="logo2" /></a>
+                    <a href="#" data-toggle="tooltip" title="HTML5"><img class="tech-logo" src="HTML5_logo_and_wordmark.svg" alt="HTML5" /></a>
+                    <a href="#" data-toggle="tooltip" title="CSS3"><img class="tech-logo" src="CSS3_logo_and_wordmark.svg" alt="CSS3" /></a>
+                    <a href="#" data-toggle="tooltip" title="Bootstrap"><img class="tech-logo" src="bootstrap-solid.svg" alt="bootstrap" /></a>
+                    <a href="#" data-toggle="tooltip" title="JavaScript"><img class="tech-logo" src="JavaScript-logo.png" alt="JavaScript" /></a>
+
+
                 </div>
                 <!-- Repeat the above .project div for each project -->
             </div>
@@ -126,18 +147,18 @@
             <div class="col-lg-8 mx-auto">
                 <h1>Blog</h1>
                 <div class="blog-post">
-                    <h2>Blog Title</h2>
-                    <h3>Blog Date</h3>
-                    <p class="lead">Blog Content</p>
+                    <h6>Wait for it...</h6>
+                    <p></p>
                 </div>
                 <!-- Repeat the above .blog-post div for each blog post -->
             </div>
         </div>
     </div>
 </div>
+
 <!-- Resume Section -->
 <div id="resume" class="section">
-    <embed src="Resume2022.pdf" type="application/pdf" width="100%" height="100%" />
+    <embed src="Resume (5:24:23).pdf" type="application/pdf" width="100%" height="100%" />
 </div>
 
 <!-- Scripts -->
@@ -169,5 +190,10 @@
             });
         }
     </script>
+    <script>
+        $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 </body>
 </html>

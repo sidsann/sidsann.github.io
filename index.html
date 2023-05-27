@@ -15,7 +15,7 @@
         margin-bottom: 1em;
         }
         .navbar-nav .nav-link {
-            font-size: 1.2em; /* Increase the font size of nav bar items */
+            font-size: 1.2em;
         }
         .container {
             margin-top: 20px;
@@ -24,11 +24,8 @@
             background-color: #ffffff;
             border-radius: 5px;
         }
-        .footer-image {
-            height: 50px;
-            transition: all 0.2s ease-in-out;
-        }
-        .footer-image:hover {
+
+        .nav-image:hover {
             transform: scale(1.1);
         }
         .nav-image {
@@ -323,17 +320,6 @@ function showSection(id) {
   document.getElementById(id).style.display = 'block';
 }
 
-// Toggle section visibility
-function toggleSection(id) {
-  var section = document.getElementById(id);
-  if (section.style.display === 'block') {
-    section.style.display = 'none';
-  } else {
-    hideAllSections();
-    section.style.display = 'block';
-  }
-}
-
 // Add event listener to nav buttons
 var navButtons = document.getElementsByClassName('nav-button');
 for (var i = 0; i < navButtons.length; i++) {
@@ -352,7 +338,6 @@ for (var i = 0; i < courseProjects.length; i++) {
     description.classList.toggle('show');
   });
 }
-
 
 $(document).ready(function() {
   $('[data-toggle="tooltip"]').tooltip();

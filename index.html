@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        .project {
+            position: relative;
+        }
+
         html, body {
             height: 100%;
             background-color: #fafafa;
+        }
+        p {
+        margin-bottom: 1em;
         }
         .navbar-nav .nav-link {
             font-size: 1.2em; /* Increase the font size of nav bar items */
@@ -56,38 +63,84 @@
             height: 50px;
             display: inline-block;
         }
+
+
+        .highlight {
+            background-color: yellow;
+        }
+
+        .course-description {
+          display: none;
+        }
+
+        .course-description.show {
+          display: block;
+          margin-bottom: 30px;
+
+        }
+
+        .expand-icon {
+          position: absolute;
+          bottom: 9px; /* Adjust the value to position the icon below the last line of text */
+          left: 50%;
+          transform: translateX(-50%);
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #f8f8f8;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: transform 0.2s;
+        }
+
+        .expand-icon:hover {
+          transform: translateX(-50%) scale(1.4);
+        }
+
+        .expand-icon span {
+          font-size: 24px;
+          font-weight: bold;
+        }
+
     </style>
 </head>
 <body>
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+            data-target="#navbarNav" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link nav-button" href="#" data-section="about-me">About Me</a>
+                <a class="nav-link nav-button" data-section="about-me" href="#">About Me</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-button" href="#" data-section="blog">Blog</a>
+                <a class="nav-link nav-button" data-section="blog" href="#">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-button" href="#" data-section="projects">Projects</a>
+                <a class="nav-link nav-button" data-section="projects" href="#">Projects</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-button" href="#" data-section="resume">Resume</a>
+                <a class="nav-link nav-button" data-section="coursework" href="#">Coursework</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-button" data-section="resume" href="#">Resume</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item ml-3">
-                <a href="mailto:sidsan@seas.upenn.edu"><img class="nav-image" src="clipart1587271.png" alt="Mail"></a>
+                <a href="mailto:sidsan@seas.upenn.edu"><img alt="Mail" class="nav-image" src="clipart1587271.png"></a>
             </li>
             <li class="nav-item ml-3">
-                <a href="https://linkedin.com/in/sid-sannapareddy"><img class="nav-image" src="In-Blue-128@2x.png" alt="LinkedIn"></a>
+                <a href="https://linkedin.com/in/sid-sannapareddy"><img alt="LinkedIn" class="nav-image"
+                                                                        src="In-Blue-128@2x.png"></a>
             </li>
             <li class="nav-item ml-3">
-                <a href="https://github.com/sidsann"><img class="nav-image" src="github-mark.svg" alt="GitHub"></a>
+                <a href="https://github.com/sidsann"><img alt="GitHub" class="nav-image" src="github-mark.svg"></a>
             </li>
 
         </ul>
@@ -96,17 +149,20 @@
 
 <!-- Sections -->
 <!-- About Me Section -->
-<!-- About Me Section -->
-<div id="about-me" class="section">
+<div class="section" id="about-me">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <h1>About Me</h1>
                 <p>
-                    Hi, my name is Sid, and I am currently pursuing a Master's degree in Computer Science at the University of Pennsylvania.
+                    Hi, my name is Sid, and I am currently pursuing a Master's degree in Computer Science at the
+                    University of Pennsylvania.
                 </p>
                 <p>
-                    My broad educational exposure as an undergraduate biochemistry major has allowed me to appreciate the interconnectedness of different fields, as well as the transformative power of technology. I see Computer Science as the key to keeping pace with our rapidly evolving world, and I am eager to play my part in shaping the future.
+                    My broad educational exposure as an undergraduate biochemistry major has allowed me to appreciate
+                    the interconnectedness of different fields, as well as the transformative power of technology. I see
+                    Computer Science as the key to keeping pace with our rapidly evolving world, and I am eager to play
+                    my part in shaping the future.
                 </p>
                 <p>
                     Please feel free to contact me at my email: sidsan at seas dot upenn dot edu
@@ -118,19 +174,25 @@
 
 
 <!-- Projects Section -->
-<div id="projects" class="section">
+<div class="section" id="projects">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h1>Projects</h1>
                 <div class="project">
                     <h2>Personal Website</h2>
-                    <p class="lead">Hint: its this one!</p>
-                    <p>Technologies Used:</p>
-                    <a href="#" data-toggle="tooltip" title="HTML5"><img class="tech-logo" src="HTML5_logo_and_wordmark.svg" alt="HTML5" /></a>
-                    <a href="#" data-toggle="tooltip" title="CSS3"><img class="tech-logo" src="CSS3_logo_and_wordmark.svg" alt="CSS3" /></a>
-                    <a href="#" data-toggle="tooltip" title="Bootstrap"><img class="tech-logo" src="bootstrap-solid.svg" alt="bootstrap" /></a>
-                    <a href="#" data-toggle="tooltip" title="JavaScript"><img class="tech-logo" src="JavaScript-logo.png" alt="JavaScript" /></a>
+                    <p>Hint: its this one!</p>
+                    <p><b>Technologies Used:</b></p>
+                    <a data-toggle="tooltip" href="#" title="HTML5"><img alt="HTML5"
+                                                                         class="tech-logo"
+                                                                         src="HTML5_logo_and_wordmark.svg"/></a>
+                    <a data-toggle="tooltip" href="#" title="CSS3"><img alt="CSS3"
+                                                                        class="tech-logo"
+                                                                        src="CSS3_logo_and_wordmark.svg"/></a>
+                    <a data-toggle="tooltip" href="#" title="Bootstrap"><img alt="bootstrap" class="tech-logo"
+                                                                             src="bootstrap-solid.svg"/></a>
+                    <a data-toggle="tooltip" href="#" title="JavaScript"><img alt="JavaScript"
+                                                                              class="tech-logo"
+                                                                              src="JavaScript-logo.png"/></a>
 
 
                 </div>
@@ -141,7 +203,7 @@
 </div>
 
 <!-- Blog Section -->
-<div id="blog" class="section">
+<div class="section" id="blog">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
@@ -157,8 +219,89 @@
 </div>
 
 <!-- Resume Section -->
-<div id="resume" class="section">
-    <embed src="Resume (5:24:23).pdf" type="application/pdf" width="100%" height="100%" />
+<div class="section" id="resume">
+    <embed height="100%" src="Resume (5:24:23).pdf" type="application/pdf" width="100%"/>
+</div>
+
+<!-- Coursework Section -->
+<div class="section" id="coursework">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="project" id="course7">
+                    <p>
+                    <h3>CIS5190: Applied Machine Learning</h3>
+                    </p>
+                    <p><b>Grade:</b> TBD || <b>Semester:</b> Fall 2023<br></p>
+                    <span class="expand-icon">+</span>
+                    <div class="course-description">
+                    <b>Course Description</b> <br>
+                    <p>Machine learning has been essential to the success of many recent technologies, including autonomous vehicles, search engines, genomics, automated medical diagnosis, image recognition, and social network analysis, among many others. This course will introduce the fundamental concepts and algorithms that enable computers to learn from experience, with an emphasis on their practical application to real problems. This course will introduce supervised learning (decision trees, logistic regression, support vector machines, Bayesian methods, neural networks and deep learning), unsupervised learning (clustering, dimensionality reduction), and reinforcement learning. Additionally, the course will discuss evaluation methodology and recent applications of machine learning, including large scale learning for big data and network analysis.</p>
+                </div></div>
+                <div class="project" id="course6">
+                    <p>
+                    <h3>CIS5500: Database & Information Systems</h3>
+                    </p>
+                    <p><b>Grade:</b> TBD || <b>Semester:</b> Fall 2023<br></p>
+                    <span class="expand-icon">+</span>
+                    <div class="course-description"><b>Course Description</b> <br>
+                    <p>This course provides an introduction to the broad field of database and information systems, covering a variety of topics relating to structured data, ranging from data modeling to logical foundations and popular languages, to system implementations. We will study the theory of relational and XML data design; the basics of query languages; efficient storage of data, execution of queries and query optimization; transactions and updates; web-database development; and "big data" and NoSQL systems.</p>
+                </div></div>
+                <!-- Repeat the above .project div for each course -->
+                <div class="project" id="course1">
+                    <p>
+                    <h3>CIT5960: Algorithms and Computation</h3>
+                    </p>
+                    <p><b>Grade:</b> A || <b>Semester:</b> Spring 2023<br></p>
+                    <span class="expand-icon">+</span>
+                    <div class="course-description"><b>Course Description</b> <br>
+                    <p>This course focuses primarily on the design and analysis of algorithms. We will begin with sorting and searching algorithms and then spend most of the course on graph algorithms. In order to study graph algorithms, general algorithm design patterns like dynamic programming and greedy algorithms will be introduced. A section of this course is also devoted to understanding NP-Completeness.</p>
+                </div></div>
+                <div class="project" id="course2">
+                    <p>
+                    <h3>CIT5950: Computer Systems Programming</h3>
+                    </p>
+                    <p><b>Grade:</b> A+ || <b>Semester:</b> Spring 2023<br></p>
+                    <span class="expand-icon">+</span>
+                    <div class="course-description"><b>Course Description</b> <br>
+                    <p>In this course, we plan to start from your experience in C, explore how real programs interact with a modern operating system, and deal with the idea of having multiple programs interact with each other or shared resources. Additionally, we will go over the workings of higher-level programming language features through C++.</p>
+                    <p>More directly speaking, we plan to go over the following topics:</p>
+                    <ul>
+                        <li>C & C++</li>
+                        <li>Pointers & Memory Allocation</li>
+                        <li>Dynamic Dispatch</li>
+                        <li>Templates</li>
+                        <li>System Calls</li>
+                        <li>File I/O</li>
+                        <li>Concurrency (processes & threads)</li>
+                        <li>Networking</li>
+                    </ul>
+                </div> </div>
+                <div class="project" id="course3">
+                    <p><h4>CIT5940: Data Structures & Software Design</h4></p>
+                    <p><b>Grade:</b> A+ || <b>Semester:</b> Spring 2023<br></p>
+                    <span class="expand-icon">+</span>
+                    <div class = "course-description">
+                    <b>Course Description</b> <br>
+                    <p>This course will focus on data structures, software design, and advanced Java. The course starts off with an introduction to data structures and basics of the analysis of algorithms. Important data structures covered will include arrays, lists, stacks, queues, trees, hash maps, and graphs. The course will also focus on software design and advanced Java topics such as software architectures, design patterns, networking, multithreading, and graphics. We will use Java for the entire course.</p>
+                </div> </div>
+                <div class="project" id="course4">
+                    <p><h4>CIT5930: Introduction to Computer Systems</h4></p>
+                    <p><b>Grade:</b> A+ || <b>Semester:</b> Fall 2022<br></p>
+                    <span class="expand-icon">+</span>
+                    <div class="course-description"><b>Course Description</b> <br>
+                    <p>This course provides an introduction to fundamental concepts of computer systems and computer architecture. You will learn the C programming language and an instruction set (machine language) as a basis for understanding how computers represent data, process information, and execute programs. The course also focuses on the Unix environment and includes a weekly hands-on lab session.</p>
+                </div></div>
+                <div class="project" id="course5">
+                    <p><h4>CIT5920: Mathematical Foundations of CS</h4></p>
+                    <p><b>Grade:</b> A || <b>Semester:</b> Fall 2022<br></p>
+                    <span class="expand-icon">+</span>
+                    <div class="course-description"><b>Course Description</b> <br>
+                    <p>This course introduces you to math concepts that form the backbone of the majority of computer science. Topics covered include sets, functions, permutations and combinations, discrete probability, expectation, mathematical induction, and graph theory. The goal of the course is to ensure that students are comfortable enough with the math required for most of the CIS electives.</p>
+                </div></div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Scripts -->
@@ -167,33 +310,56 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <script>
-        // Hide all sections
-        function hideAllSections() {
-            var sections = document.getElementsByClassName('section');
-            for (var i = 0; i < sections.length; i++) {
-                sections[i].style.display = 'none';
-            }
-        }
+// Hide all sections
+function hideAllSections() {
+  var sections = document.getElementsByClassName('section');
+  for (var i = 0; i < sections.length; i++) {
+    sections[i].style.display = 'none';
+  }
+}
 
-        // Show the clicked section
-        function showSection(id) {
-            document.getElementById(id).style.display = 'block';
-        }
+// Show the clicked section
+function showSection(id) {
+  document.getElementById(id).style.display = 'block';
+}
 
-        // Add event listener to nav buttons
-        var navButtons = document.getElementsByClassName('nav-button');
-        for (var i = 0; i < navButtons.length; i++) {
-            navButtons[i].addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent the default action
-                hideAllSections();
-                showSection(this.getAttribute('data-section'));
-            });
-        }
-    </script>
-    <script>
-        $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-    });
+// Toggle section visibility
+function toggleSection(id) {
+  var section = document.getElementById(id);
+  if (section.style.display === 'block') {
+    section.style.display = 'none';
+  } else {
+    hideAllSections();
+    section.style.display = 'block';
+  }
+}
+
+// Add event listener to nav buttons
+var navButtons = document.getElementsByClassName('nav-button');
+for (var i = 0; i < navButtons.length; i++) {
+  navButtons[i].addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent the default action
+    hideAllSections();
+    showSection(this.getAttribute('data-section'));
+  });
+}
+
+// Add event listener to course projects
+var courseProjects = document.getElementsByClassName('project');
+for (var i = 0; i < courseProjects.length; i++) {
+  courseProjects[i].addEventListener('click', function() {
+    var description = this.getElementsByClassName('course-description')[0];
+    description.classList.toggle('show');
+  });
+}
+
+
+$(document).ready(function() {
+  $('[data-toggle="tooltip"]').tooltip();
+});
 </script>
+
+
+
 </body>
 </html>

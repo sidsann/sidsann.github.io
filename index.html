@@ -101,6 +101,8 @@
           font-weight: bold;
         }
 
+
+
     </style>
 </head>
 <body>
@@ -204,16 +206,41 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h1>Blog</h1>
-                <div class="blog-post">
-                    <h6>Wait for it...</h6>
-                    <p></p>
-                </div>
-                <!-- Repeat the above .blog-post div for each blog post -->
+                <div class="project">
+                    <h3>Unpacking the Binary Search Algorithm</h3>
+                    <span><b>Date: </b>May 31, 2023</span>
+                    <span class="expand-icon">+</span>
+                    <div class="course-description"><p>In my algorithms course last semester, the focus was more on understanding the intuition behind algorithms, rather than on understanding the details of their implementation. This was true even for binary search, a conceptually intuitive algorithm that aims to find the index of a target value within a sorted array. In this short blog post, I'm going to quickly delve into its iterative implementation.</p>
+
+                    <pre>
+                        <code>
+binarySearch(arr, target) {
+    low = 0;
+    high = arr.size() - 1;
+    while(low <= high) {
+        mid = low + (high - low) / 2;
+        if (arr[mid] == target) {
+            return mid;
+        } else if (arr[mid] < target) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return -1;
+}
+                        </code>
+                    </pre>
+                        <p>The algorithm begins by defining two variables, 'low' and 'high', representing the first and last index of the array respectively. Central to this algorithm is the 'while' loop that continues until 'low' exceeds 'high'.</p>
+                        <p>In a traditional linear search employing two pointers, the loop termination indicates that the entire array has been traversed. However, in the binary search algorithm, we only examine log(n) elements, where n is the length of the input array. So how do we know that we have exhaustively searched the array, thereby concluding that the target value does not exist?</p>
+                        <p>The key is understanding how the algorithm continually narrows down the search space to sections of the array that potentially contain the target value. If the value at 'mid' is less than the target, the algorithm reduces the search space to the section from 'mid+1' to 'high'. Conversely, if the 'mid' value is greater than the target, the search hones in on the section from 'low' to 'mid-1'. Therefore, when 'low' surpasses 'high', the search space is emptied, indicating that the target value is not in the array. At this point, 'low' and 'high' serve as exclusive boundaries for the empty search space: 'low' is the index for the target's successor and the upper bound for the empty search space, while 'high' is the index for the target's predecessor and the lower bound for the empty search space. Adjusting the terminal return statement could fetch these values.</p>
+                        <p><b>Note:</b> To avoid potential integer overflow for large arrays, 'mid' is calculated as 'low + (high - low) / 2' rather than 'low + high / 2'.</p>
+                    </div></div>
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- Resume Section -->
 <div class="section" id="resume">
